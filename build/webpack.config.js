@@ -9,6 +9,8 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const resolve = dir => path.join(__dirname, '..', dir);
+
 module.exports = {
     mode: 'none',
     entry: path.join(__dirname, './../', 'src/index.tsx'),
@@ -22,7 +24,10 @@ module.exports = {
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".ts", ".tsx", ".js", ".json"]
+        extensions: [".ts", ".tsx", ".js", ".json"],
+        alias: {
+            '@types': resolve('src/types.ts')
+        }
     },
 
     module: {
@@ -48,8 +53,7 @@ module.exports = {
 
     externals: {
         "react": "React",
-        "react-dom": "ReactDOM",
-        'antd': 'antd'
+        "react-dom": "ReactDOM"
     },
 
     plugins: [

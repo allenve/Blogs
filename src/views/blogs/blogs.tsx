@@ -6,26 +6,36 @@
  */
 
 import * as React from 'react';
+import { Link } from 'react-router-dom';
+import COS from 'cos-js-sdk-v5';
+import { cosKey, BucketConf } from '../../assets/config';
+import {CosContentProps, BlogListProps} from '@types';
 import './blogs.less';
-// import urlMd from '../../assets/md/url.md';
+
+const { useState, useEffect } = React;
 
 const Blogs: React.FC = () => {
-    const list = [
-        {
-            title: '从输入URL到页面加载完成发生了什么?',
-            // md: urlMd
-        },
-        {
-            title: '跨域'
-        }
-    ]
+    const cos = new COS(cosKey);
+    const [ list, setList] = useState([]);
+
+    const getBucketListData = (): void => {
+        cos.getBucket(BucketConf, ((err: any, data: any) => {
+            const contents: CosContentProps[] = data.Contents;
+            setList(contents.map((item: CosContentProps, index: number) => ({title: item.Key, id: index})));    
+        }));
+    }
+
+    useEffect(() => {
+        getBucketListData()
+    }, ['list']);
+
     return (
         <div className="app-blogs">
             <ul className="app-blogs-ul-wrapper">
                 {
                     list.map((item, index) => {
                         return (
-                            <li><a key={index}>{item.title}</a></li>
+                            <li key={index}><Link to={`/blogs/${item.id}`}>{item.title}</Link></li>
                         )
                     })
                 }
