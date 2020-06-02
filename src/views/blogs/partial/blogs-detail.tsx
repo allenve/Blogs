@@ -7,13 +7,10 @@
 
 import * as React from 'react';
 import { RouteComponentProps } from "react-router-dom"
-import {BlogsDetailProps, BlogsRouterInfo} from '@types';
 
-const BlogsDetail: React.FC<BlogsDetailProps & RouteComponentProps<BlogsRouterInfo>> = ({match}) => {
-    const id: string = match.params.id
-
+const BlogsDetail: React.FC = () => {
     return (
-        <div>test: {id}</div>
+        <div>test</div>
     )
 };
 

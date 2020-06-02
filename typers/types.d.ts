@@ -5,22 +5,22 @@
  * @created: 2020/03/21
  */
 
-export interface BlogsRouterInfo {
+interface BlogsRouterInfo {
     id: string;
 }
 
-export interface BlogsDetailProps {
+interface BlogsDetailProps {
     key?: number;
     title?: string;
 }
 
-export interface BlogListProps {
+interface BlogListProps {
     title?: string;
     id: number;
-    lastModified: string;
+    lastModified?: string;
 }
 
-export interface CosContentProps {
+interface CosContentProps {
     Key?: string;
     LastModified: string;
 }

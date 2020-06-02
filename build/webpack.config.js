@@ -26,7 +26,8 @@ module.exports = {
         // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: [".ts", ".tsx", ".js", ".json"],
         alias: {
-            '@types': resolve('src/types.ts')
+            '@types': resolve('src/types.ts'),
+            '@utils': resolve('src/lib/utils.ts')
         }
     },
 
@@ -53,7 +54,14 @@ module.exports = {
 
     externals: {
         "react": "React",
-        "react-dom": "ReactDOM"
+        "react-dom": "ReactDOM",
+        "antd": "antd"
+    },
+
+    devServer: {
+        hot: true,
+        open: true,
+        port: 8889
     },
 
     plugins: [

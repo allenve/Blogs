@@ -6,9 +6,10 @@
  */
 
 import * as React from 'react';
-import { HashRouter, Route, Link } from 'react-router-dom';
+import { HashRouter, Route, NavLink } from 'react-router-dom';
 import Blogs from './blogs/blogs';
 import BlogsDetail from './blogs/partial/blogs-detail';
+import AntdDemo from './antd/Antd-demo';
 
 const App: React.FC = () => {
     return (
@@ -16,13 +17,14 @@ const App: React.FC = () => {
             <div className="main">
                 <div className="nav">
                     <ul>
-                        <li><Link to='/'>博客</Link></li>
-                        <li><Link to='/test1'>其他</Link></li>
+                        <li><NavLink to='/' exact activeClassName="active">博客</NavLink></li>
+                        <li><NavLink to='/antd'>Antd Demo</NavLink></li>
                     </ul>
                 </div>
                 <div className="router-wrapper">
-                    <Route exact path="/" component={Blogs}></Route>
-                    <Route exact path="/blogs/:id" component={BlogsDetail}></Route>
+                    <Route exact path="/" component={Blogs} />
+                    <Route exact path="/antd" component={AntdDemo} />
+                    <Route exact path="/blogs/:id" component={BlogsDetail} />
                 </div>
             </div>
         </HashRouter>
