@@ -4951,10 +4951,10 @@ exports.AntdDemo = function () {
         {
             label: '2020-03',
             value: [
-                { name: 'DCC服务器创建页重构/改版', mode: 'DCC' },
                 { name: '快照商用提示', mode: 'BCC/CDS' },
                 { name: 'ARM云服务器', mode: 'BCC' },
                 { name: 'BCC订单确认页优化', mode: 'BCC' },
+                { name: 'DCC服务器创建页重构/改版', mode: 'DCC' },
                 { name: 'BBC创建子网优化', mode: 'BBC' }
             ]
         },
@@ -4970,13 +4970,15 @@ exports.AntdDemo = function () {
             value: [
                 { name: '更换console引流链接', mode: 'BCC' },
                 { name: 'BCC/DCC/CDS模块升级', mode: 'BCC/DCC/CDS' },
-                { name: '虚机新增关机中状态', mode: 'BCC' }
+                { name: '虚机新增关机中状态', mode: 'BCC' },
+                { name: 'BCC关联购买EIP增加配额', mode: 'BCC' }
             ]
         },
         {
             label: '2020-06',
             value: [
-                { name: '实例级别快照', mode: 'BCC/CDS' }
+                { name: '实例级别快照', mode: 'BCC/CDS' },
+                { name: '迁移中心', mode: 'MS' }
             ]
         }
     ];
